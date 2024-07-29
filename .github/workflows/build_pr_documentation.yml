@@ -187,7 +187,8 @@ jobs:
           echo https://colab.research.google.com/github/${{ inputs.repo_owner }}/${{ inputs.package }}/blob/$branch$remaining_part
 
           doc-builder notebook-to-mdx ${{ env.doc_folder }} --open_notebook_prefix https://colab.research.google.com/github/${{ inputs.repo_owner }}/${{ inputs.package }}/blob/$branch$remaining_part
-
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: Make documentation
         env:
           NODE_OPTIONS: --max-old-space-size=6656
